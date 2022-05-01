@@ -21,19 +21,19 @@ jobs:
       - run: cd /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/ && sudo npm install graceful-fs@4.2.0 --save && cd -
       - run: gitbook install
       - run: mkdir output
-#       - run: gitbook pdf . ./output/typescript-book-${SHA}.pdf
       - run: gitbook epub . ./output/typescript-book-${SHA}.epub
-#       - run: gitbook mobi . ./output/typescript-book-${SHA}.mobi
-#       - name: upload pdf artifact
-#         uses: actions/upload-artifact@v1
-#         with:
-#           name: typescript-book.pdf
-#           path: output/typescript-book-${{ env.SHA }}.pdf
       - name: upload epub artifact
         uses: actions/upload-artifact@v1
         with:
           name: typescript-book.epub
           path: output/typescript-book-${{ env.SHA }}.epub
+      - run: gitbook pdf . ./output/typescript-book-${SHA}.pdf
+      - name: upload pdf artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: typescript-book.pdf
+          path: output/typescript-book-${{ env.SHA }}.pdf
+#       - run: gitbook mobi . ./output/typescript-book-${SHA}.mobi
 #       - name: upload mobi artifact
 #         uses: actions/upload-artifact@v1
 #         with:
