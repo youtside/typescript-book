@@ -18,7 +18,7 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install calibre-bin
       - run: sudo npm install -g gitbook-cli
-      - run: cd /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/ && npm install graceful-fs@latest --save
+      - run: cd /usr/local/lib/node_modules/gitbook-cli/node_modules/npm/node_modules/ && sudo npm install graceful-fs@4.2.0 --save && cd -
       - run: gitbook install
       - run: mkdir output
 #       - run: gitbook pdf . ./output/typescript-book-${SHA}.pdf
